@@ -1,0 +1,73 @@
+﻿@model Centro_de_estudios.Models.ImpartirViewModel.SelectAsignaturasForImpartirViewModel
+
+@{ 
+    ViewData["Title"] = "Select Asignaturas";
+}
+
+<h2>Impartir Asignaturas</h2>
+
+<form asp-controller="Impartirs" class="form-horizontal" asp-action="SelectAsignaturasForImpartir" method="get">
+    <p>
+        <div>
+            <label asp-for="asignaturaNombre"></label>
+            <input asp-for="asignaturaNombre" size="50"/>
+            <span asp-validation-for="asignaturaNombre" class="text-danger"></span>
+
+            <label asp-for="asignaturaIntensificacionSelected"></label>
+            <select asp-for="asignaturaIntensificacionSelected" asp-items="Model.Intensificaciones">
+                <option value="">All</option>
+            </select>
+            <input id="filterbyNombreIntensificacion" type="submit" value="Filter" />
+        </div>
+    </p>
+</form>
+
+<div id="ModelErrors" asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="SelectAsignaturasForImpartir" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="50%">
+                    Nombre
+                </th>
+                <th>
+                    Tiempo de docencia
+                </th>
+                <th>
+                    Intensificacion
+                </th>
+                <th align="center" width="10%">
+                    Select asignatura
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Asignaturas.Count() == 0)
+            {
+                <tr><td colspan="3" id="NoAsignaturas">No hay asignaturas disponibles</td></tr>
+            } else
+            {
+                @foreach (var item in Model.Asignaturas)
+                {
+                    <tr id="Asignatura_Nombre_@item.NombreAsignatura">
+                        <td width="50%">
+                            @Html.DisplayFor(modelItem => item.NombreAsignatura)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MinimoMesesDocencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Intensificacion.NombreIntensificacion)
+                        </td>
+                        <td align="center" width="10%">
+                            <input type="checkbox" name="IdsToAdd" value="@item.AsignaturaID" id="Asignatura_@item.AsignaturaID" class="form-control">
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+    <button id="nextButton" type="submit" class="btn btn-primary">Next</button>
+    <a asp-action="Index" class="btn btn-default"></a>
+</form>

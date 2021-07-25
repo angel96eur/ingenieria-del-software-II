@@ -1,0 +1,190 @@
+﻿@model Centro_de_estudios.Models.CompraViewModels.CompraCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-horizontal">
+        <h4>Compra</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrimerApellido)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PrimerApellido)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SegundoApellido)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SegundoApellido)
+            </dd>
+        </dl>
+
+
+
+        <div class="form-group">
+            <label asp-for="DireccionEnvio" class="col-md-2 control-label"></label>
+            <div id="ModelErrors" class="col-md-10">
+                <input id="DireccionEnvio" asp-for="DireccionEnvio" class="form-control" height="20" />
+                <span asp-validation-for="DireccionEnvio" class="text-danger" />
+            </div>
+
+        </div>
+        <div id="ModelErrors" asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="EstudianteId" type="hidden" class="form-control" />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="50%">
+                        Titulo
+                    </th>
+                    <th width="20%">
+                        Precio
+                    </th>
+                    <th>
+                        Cantidad
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.CompraMateriales.Count() == 0)
+                {
+                    <tr><td colspan="3" id="ModelErrors">No hay materiales disponibles</td></tr>
+                }
+                else
+                {
+                    @for (int i = 0; i < Model.CompraMateriales.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.CompraMateriales.ElementAt<CompraMaterial>(i).Material.Titulo)
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    @Html.DisplayFor(modelItem => Model.CompraMateriales.ElementAt<CompraMaterial>(i).Material.PrecioCompra)
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input asp-for="CompraMateriales[i].Material.MaterialID" type="hidden" class="form-control" />
+                                    <input asp-for="CompraMateriales[i].Material.PrecioCompra" type="hidden" class="form-control" />
+                                    <input asp-for="CompraMateriales[i].Material.Titulo" type="hidden" class="form-control" />
+                                    <input asp-for="CompraMateriales[i].Material.TipoMaterial" type="hidden" class="form-control" />
+                                    <input asp-for="CompraMateriales[i].Cantidad" id="Material_cantidadMaterial_@Model.CompraMateriales[i].Material.MaterialID" class="form-control" />
+                                    <span asp-validation-for="CompraMateriales[i].Cantidad" class="text-danger" />
+                                    
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        @* this code needs the script defined in site.js *@
+    <div class="panel-group" id="accordion">
+        @*  *@
+        <div class="panel panel-default ">
+            <span asp-validation-for="MetodoPago" class="text-danger" />
+            <div class="panel-heading">
+                @*  *@
+                <h4 class="panel-title">
+
+                    <label for='r11' style='width: 350px;'>
+                        @*@<input type='radio' id='r11' name='PaymentMethod' value='CreditCard' required checked /> Credit Card*@
+                        <input type='radio' id='r11' asp-for='MetodoPago' value='CreditCard' required /> Credit Card
+                        @*  *@
+                        @*<span asp-validation-for="CreditCard" class="text-danger" />*@
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"></a>
+                        @*  *@
+                    </label>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse ">
+                @*  *@
+                <div class="panel-body row">
+                    @*  *@
+                    <div class="col-md-4">
+                        <label asp-for="CreditCard.CreditCardNumber" class="control-label"></label>
+                        <input asp-for="CreditCard.CreditCardNumber" class="form-control" size="20" />
+                        <span asp-validation-for="CreditCard.CreditCardNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label asp-for="CreditCard.CCV" class="control-label"></label>
+                        <input asp-for="CreditCard.CCV" class="form-control" size="3" />
+                        <span asp-validation-for="CreditCard.CCV" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label asp-for="CreditCard.ExpirationDate" class="control-label"></label>
+                        <input asp-for="CreditCard.ExpirationDate" class="form-control" size="20" />
+                        <span asp-validation-for="CreditCard.ExpirationDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class=panel-title>
+                    <label for='r12' style='width: 350px;'>
+                        @*<input type='radio' id='r12' name='PaymentMethod' value='PayPal' required /> PayPal*@
+                        <input type='radio' id='r12' asp-for='MetodoPago' value='PayPal' required /> PayPal
+                        <a data-toggle="collapse" id="paypal" data-parent="#accordion" href="#collapseTwo"></a>
+                    </label>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body row">
+                    <div class="col-md-4">
+                        <label asp-for="PayPal.Email" class="control-label"></label>
+                        <input asp-for="PayPal.Email" id="email" class="form-control" />
+                        <span asp-validation-for="PayPal.Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label asp-for="PayPal.Prefix" class="control-label"></label>
+                        <input asp-for="PayPal.Prefix" id="paypal_prefix" class="form-control" />
+                        <span asp-validation-for="PayPal.Prefix" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label asp-for="PayPal.Phone" class="control-label"></label>
+                        <input asp-for="PayPal.Phone" id="paypal_phone" class="form-control" />
+                        <span asp-validation-for="PayPal.Phone" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<span asp-validation-for="MetodoPago" class="text-danger" />*@
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" id="CreateButton" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@*email -> The Email field is not a valid e-mail address.
+prefix -> The field Prefix must be a string with a minimum length of 2 and a maximum length of 3.
+The field Phone must be a string with a minimum length of 6 and a maximum length of 7.*@

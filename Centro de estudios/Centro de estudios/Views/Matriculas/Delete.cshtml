@@ -1,0 +1,28 @@
+﻿@model Centro_de_estudios.Models.Matricula
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>¿Seguro que lo quiere borrar?</h3>
+<div>
+    <h4>Matricula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaMatricula)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaMatricula)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Vuelve a la lista</a>
+        </div>
+    </form>
+</div>

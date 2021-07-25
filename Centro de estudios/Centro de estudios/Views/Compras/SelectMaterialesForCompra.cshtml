@@ -1,0 +1,84 @@
+﻿@model Centro_de_estudios.Models.CompraViewModels.SelectMaterialesForPurchaseViewModel
+
+
+@{
+    ViewData["Title"] = "Select Materiales";
+}
+
+<h2>SelectMaterialesForCompra</h2>
+
+
+
+<form asp-controller="Compras" class="form-horizontal" asp-action="SelectMaterialesForCompra" method="get">
+    <p>
+        <div>
+            <label asp-for="materialTitulo"></label>
+            <input asp-for="materialTitulo" size="50" />
+            <span asp-validation-for="materialTitulo" class="text-danger"></span>
+
+            <label asp-for="tipomaterialSelected"></label>
+            <select asp-for="tipomaterialSelected" asp-items="Model.TipoMateriales">
+                <option value="">All</option>
+            </select>
+            <input id="filterbyTituloTipoMaterial"  type="submit" value="Filter" />
+        </div>
+
+    </p>
+</form>
+
+
+<div id="ModelErrors" asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="SelectMaterialesForCompra" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="50%">
+                    Titulo
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Fecha Lanzamiento
+                </th>
+                <th>
+                    Tipo Material
+                </th>
+                <th align="center" width="10%">
+                    Selecciona material
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Materiales.Count() == 0)
+            {
+                <tr><td colspan="3" id="NoMateriales">No hay materiales disponibles</td></tr>
+            }
+            else
+            {
+                @foreach (var item in Model.Materiales)
+                {
+                    <tr id="Material_Titulo_@item.Titulo">
+                        <td width="50%">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrecioCompra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaLanzamiento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoMaterial.Nombre)
+                        </td>
+                        <td align="center" width="10%">
+                            <input type="checkbox" name="IdsToAdd" value="@item.MaterialID" id="Material_@item.MaterialID" class="form-control">
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <button type="submit" id="nextButton" class="btn btn-primary">Next</button>
+    <a asp-action="Index" class="btn btn-default">Cancel</a>
+</form>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Centro_de_estudios.Models.Compra">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAgBAAgEAKAAAAAAAAAQAAAAAAACA=</HashCode>
+      <FileName>Compra.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Estudiante" />
+      <Property Name="MetodoDePago" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="CompraMateriales" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.TipoMaterial">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgIAAgAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TipoMaterial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Materiales" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.CompraMaterial">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAEAAAAAhAAAgAAAAAAIAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>CompraMaterial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Material" />
+      <Property Name="Compra" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.MetodoPago" Collapsed="true">
+    <Position X="4.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MetodoPago.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Material">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAIAgAAAAIAAAAAAAAAAAAAAIAAAEBA=</HashCode>
+      <FileName>Material.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoMaterial" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="CompraMateriales" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.CreditCard" Collapsed="true">
+    <Position X="3.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreditCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Estudiante">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Estudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Compra" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.PayPal" Collapsed="true">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgAAAAAACAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>PayPal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.ApplicationUser">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

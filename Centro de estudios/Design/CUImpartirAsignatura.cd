@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Centro_de_estudios.Models.ApplicationUser" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Profesor" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Profesor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Impartir">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgQIAAAABgAAAAAAAAAAAAAABAAAAABAAAAA=</HashCode>
+      <FileName>Impartir.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Profesor" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ImpartirAsignaturas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.ImpartirAsignatura">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Asignatura" Type="Centro_de_estudios.Models.Asignatura">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.237" Y="-0.317" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQCBAAAgAEAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImpartirAsignatura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Asignatura" />
+      <Property Name="Impartir" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Asignatura">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAIAAAABgAAAAAAQAAAAAAAQAAAgAAAAAAA=</HashCode>
+      <FileName>Asignatura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Intensificacion" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ImpartirAsignaturas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Intensificacion">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAEAQAAAACAAAAAAA=</HashCode>
+      <FileName>Intensificacion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Asignaturas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

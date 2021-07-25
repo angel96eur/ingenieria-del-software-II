@@ -1,0 +1,89 @@
+﻿@model Centro_de_estudios.Models.Compra
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiante.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiante.PrimerApellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.PrimerApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiante.SegundoApellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.SegundoApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCompra)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaCompra)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DeireccionDeEnvio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DeireccionDeEnvio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrecioTotal)
+        </dd>
+
+    </dl>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Titulo
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Cantidad
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.CompraMateriales.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.CompraMateriales.ElementAt<CompraMaterial>(i).Material.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.CompraMateriales.ElementAt<CompraMaterial>(i).Material.PrecioCompra)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.CompraMateriales.ElementAt<CompraMaterial>(i).Cantidad)
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CompraID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

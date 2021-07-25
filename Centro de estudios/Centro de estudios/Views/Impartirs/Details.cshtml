@@ -1,0 +1,85 @@
+﻿@model Centro_de_estudios.Models.Impartir
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Impartir</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesor.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profesor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesor.PrimerApellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profesor.PrimerApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesor.SegundoApellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profesor.SegundoApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.mesesDocenciaTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.mesesDocenciaTotal)
+        </dd>
+
+    </dl>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Tiempo minimo de docencia
+                </th>
+                <th>
+                    meses de docencia
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ImpartirAsignaturas.Count; i++)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ImpartirAsignaturas.ElementAt<ImpartirAsignatura>(i).Asignatura.NombreAsignatura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ImpartirAsignaturas.ElementAt<ImpartirAsignatura>(i).Asignatura.Intensificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ImpartirAsignaturas.ElementAt<ImpartirAsignatura>(i).Asignatura.MinimoMesesDocencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ImpartirAsignaturas.ElementAt<ImpartirAsignatura>(i).cantidadAsignatura)
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ImpartirId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Centro_de_estudios.Models.ApplicationUser">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Asignatura">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAIAAAABgAAAAAAQAAAAAAAQEAAgAAAAAAA=</HashCode>
+      <FileName>Asignatura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Intensificacion" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Matricula_Asignaturas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.CreditCard" Collapsed="true">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreditCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Estudiante">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Estudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Matricula" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Intensificacion">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAEAQAAAACAAAAAAA=</HashCode>
+      <FileName>Intensificacion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Asignaturas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Matricula">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAQAIAAAAAAAAAgBAAAEAQAEAAAAIAAAAAAAAAACA=</HashCode>
+      <FileName>Matricula.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Estudiante" />
+      <Property Name="MetodoPago" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="MatriculaAsignaturas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.Matricula_Asignatura">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQCAAIAkAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Matricula_Asignatura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Asignatura" />
+      <Property Name="Matricula" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.MetodoPago" Collapsed="true">
+    <Position X="5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MetodoPago.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Centro_de_estudios.Models.PayPal" Collapsed="true">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgAAAAAACAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>PayPal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

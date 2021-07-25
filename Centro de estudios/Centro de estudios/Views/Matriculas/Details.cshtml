@@ -1,0 +1,89 @@
+﻿@model Centro_de_estudios.Models.Matricula
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Matricula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiante.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiante.PrimerApellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.PrimerApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estudiante.SegundoApellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.SegundoApellido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaMatricula)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaMatricula)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Residencia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Residencia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioTotal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrecioTotal)
+        </dd>
+
+    </dl>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nombre asignatura
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    plazas
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.MatriculaAsignaturas.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.MatriculaAsignaturas.ElementAt<Matricula_Asignatura>(i).Asignatura.NombreAsignatura)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.MatriculaAsignaturas.ElementAt<Matricula_Asignatura>(i).Asignatura.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.MatriculaAsignaturas.ElementAt<Matricula_Asignatura>(i).cantidad)
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MatriculaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
